@@ -4,7 +4,9 @@
 }
 /*     font-family: "Chivo",sans-serif;
        font-family: "Open Sans",sans-serif; */
-
+body{
+    position: relative;
+}
  a {
      text-decoration: none;
  }      
@@ -41,9 +43,13 @@
  .nav-item{
      margin: 0 16px;
  }
- #header{
+ header{
     position: fixed
 }
+header .logo{
+    margin-left: 33px;
+}
+
 /* banner section css start */
 
 #banner{
@@ -52,7 +58,7 @@
     
 }
 .b-content{
-    height: 50vh;
+    height: 50h;
     
     align-items: center;
 }
@@ -75,11 +81,11 @@
     
 }
 .book-btn{
-    background: #fb0000;
+    background-color: #fb0000;
     font-family: "Chivo",sans-serif;
-    
+    z-index: 99;
     padding: 32px 58px;
-    color: #fff !important;
+    color: #fff;
     cursor: pointer;
     display: inline-block;
     font-size: 18px !important;
@@ -87,9 +93,7 @@
     border-radius: 0;
     line-height: 1;
     line-height: 0;
-    
     position: relative;
-    z-index: 1;
     border: 0;
     text-decoration: none;
     margin-top: 15px;
@@ -100,24 +104,25 @@
 .book-btn::before{
     content: '';
     position: absolute;
+    background-color: #fff;
     left: 0px;
     top: 0px;
     bottom: 0px;
-    height: 100%;
     width: 0%;
-    background-color: white;
-    
-    
-    transition: 0.5s;
-    z-index: 1;
+    transition: 0.3s;
+    z-index: -1;
+   
 }
 .book-btn:hover::before{
     width: 100%;
-    background-color: white;
-    color: #fb0000 !important;
-    transition: 0.5s;
+    transition: 0.3s;
+   
     
 }
+.book-btn:hover{
+    color: #fb0000;
+}
+
 
 
 /* banner section css end */
@@ -291,90 +296,69 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
-.first{
+.sc-item{
+    z-index: 50;
     background-color: #000000;
-    padding: 55px 0;
-    border-radius: 10px;
-   
+    padding: 48px 40px;
+    border-radius: 16px;
+    text-align: center;
+    align-items: center;
+    position: relative;
+    font-family: "Open Sans",sans-serif;
     
     
 }
-.first img{
-   padding-left: 35%;
+
+.sc-item::before{
+    content: '';
+    position: absolute;
+    background-color: white;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 16px;
+    height: 0;
+    transition: 0.5s;
+    z-index: -1;
+}
+.sc-item:hover::before{
+    height: 100%;
+    transition: 0.5s;
+    animation-delay: 0.7s;
+}
+.sc-item:hover h5 a{
+    color: black;
+    
+}
+.sc-item img{
+   
    padding-bottom: 20px;
 }
-.first  a{
+.sc-item a{
     text-decoration: none;
+    
+    
 } 
-.first a h5{
+.sc-item h5 a{
     text-decoration: none;
     text-align: center;
     color: white;
     font-family: "Open Sans",sans-serif;
     padding-bottom: 10px;
+    display: inline-block;
 }
-.first p{
+.sc-item p{
     color: #928888;
     font-family: "Open Sans",sans-serif;
     font-size: 16px;
     line-height: 1.5;
     text-align: center;
     align-items: center;
-}
-.second{
-    background-color: #000000;
-    padding: 55px 0;
-    border-radius: 10px;
-}
-.second img{
-    padding-left: 45%;
-    padding-bottom: 20px;
 }
 
-.second a{
-    text-decoration: none;
-}
-.second a h5{
-    text-align: center;
-    color: white;
-    font-family: "Open Sans",sans-serif;
-    padding-bottom: 10px;
-}
-.second p{
-    color: #928888;
-    font-family: "Open Sans",sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-    text-align: center;
-    align-items: center;
-}
-.last{
-    background-color: #000000;
-    padding: 55px 0px;
-    border-radius: 10px;
-}
-.last img{
-    padding-left: 40%;
-    padding-bottom: 20px;
-}
 
-.last a{
-    text-decoration: none;
-}
-.last a h5{
-    text-align: center;
-    color: white;
-    font-family: "Open Sans",sans-serif;
-    padding-bottom: 10px;
-}
-.last p{
-    color: #928888;
-    font-family: "Open Sans",sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-    text-align: center;
-    align-items: center;
-}
+
+
 /* slider section css */
 
 #slider{
@@ -389,7 +373,28 @@
 #slider .owl-nav{
     display: none;
 }
+.sl-item{
+    position: relative;
+}
 
+.sl-item::before{
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(190, 66, 66, 0.3);
+    opacity: 0;
+    transition: 0.5s;
+    z-index: 1;
+}
+.sl-item:hover::before{
+    opacity: 1;
+    transition: 0.5s;
+}
 /* introduction code css start*/
 
 #introduction{
@@ -397,11 +402,19 @@
     padding: 100px 0;
 }
 
-#introduction .L-2{
-    width: 90px;
+.L-2{
+    height: 4px;
+    width: 60px;
+    background-color: #fb0000;
+    margin-bottom: 20px;
+    margin-top: 25px;
+    margin-left: 48%;
+    
+    
     
 }
-#introduction h2{
+
+#introduction .h-item{
     font-family: "Chivo",sans-serif;
     font-size: 35px;
     text-transform: uppercase;
@@ -409,10 +422,11 @@
     font-weight: 700;
     line-height: 1.3;
     margin-bottom: 50px;
-    text-align: center;
     padding-top: 15px;
+
     
 }
+
 #introduction .i-con a i{
     color: #fb0000;
     padding-top: 50px;
@@ -435,6 +449,13 @@
     border-top: 1px solid rgba(103,94,94,.2);
     border-bottom: 1px solid rgba(103,94,94,.2);
 }
+.owl-item{
+
+    margin-right: 0 !important;
+}
+.owl-stage{
+    transition: all 2s ease 0s !important;
+}
 
 /* introduction code css end */
 
@@ -443,7 +464,8 @@
 #f-content{
     width: 100%;
     padding: 70px 0;
-     background-color: #212529; 
+    background-color: #150303; 
+    
 }
 #f-content .r-item-1{
     margin-left: -20px;
@@ -535,16 +557,21 @@
     border-radius: 50%;
     margin-left: 20px;
     margin-top: 50px;
+    transition: 0.5s;
      
 }
 .r-item-2 a i:hover{
     background-color: #fb0000;
     transition: 0.5s;
-
-    
+    transform: rotateY(180deg); 
 }
 
 
+#center{
+    border-top: 1px solid rgb(68, 54, 54);
+    margin-top: 50px;
+   
+}
 #center p{
     margin-top: 50px;
     color: #928888;
@@ -552,6 +579,7 @@
     font-size: 16px;
     line-height: 2;
     font-family: "Open Sans",sans-serif;
+    
 }
 #center p i{
     color: red;
@@ -582,31 +610,69 @@
     width: 100%;
     transition: 0.5s;
 }
+/* sub dropdown menu start */
 
-.drop-down .dropdown-menu ul li{
-    transition: 3s;
-    
-}
+
 .drop-down:hover .dropdown-menu{
     display: block;
-    transition: 3s;
-    transition-delay: 2s;
-    color: rgb(255, 8, 8) !important;
-    background: #000000 ;
+    transition-delay: 0.5s;
+   
 }
 .drop-down .dropdown-menu{
   position: absolute;
   top: 100%;
   left: 0;
   width: 100%;
-  
   display: none;
+  font-family: "Open Sans",sans-serif;
 }
-.drop-down:hover {
-  display: block;
-  transition: 3s;
-
-  
+.dropdown-item{
+    background-color: #150303 !important;
+    color: #efdcef !important;
+    transition: 0.5s;
+    
+}
+.dropdown-item:hover{
+    color: #fb0000 !important;
+    transition: 0.5s;
+    transform: scaleX(1);
 }
 
+/* sub dropdown menu end */
 
+#back-top{
+    position: absolute;
+    display: inline-block;
+    right: 60px;
+    bottom: 40px;
+}
+#back-top a i{
+    height: 50px;
+    width: 50px;
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    background-color: #FB0000;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 50px;
+    transition: 0.5s;
+    position: relative;
+    display: block;
+    
+}
+#back-top a i{
+    position: absolute;
+    bottom: 20%;
+    transform: translateX(-50%);
+    left: 50%;
+    animation: toTop 1s linear infinite;
+}
+@keyframes toTop{
+    from{
+        bottom: 20%;
+    }
+    to{
+        bottom:60%;
+    }
+
+}
